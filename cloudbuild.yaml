@@ -1,6 +1,10 @@
 steps:
   - name: 'hashicorp/terraform:1.5.7'
     args:
+      - 'destroy'
+      - '-auto-approve'
+  - name: 'hashicorp/terraform:1.5.7'
+    args:
       - 'init'
   - name: 'hashicorp/terraform:1.5.7'
     args:
