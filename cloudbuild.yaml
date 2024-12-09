@@ -5,7 +5,7 @@ steps:
   - name: 'hashicorp/terraform:1.5.7'
     args:
       - 'taint'
-      - 'google_compute_instance.ci-cd-engine'
+      - 'google_compute_instance.ci_cd_instance'
   - name: 'hashicorp/terraform:1.5.7'
     args:
       - 'apply'
