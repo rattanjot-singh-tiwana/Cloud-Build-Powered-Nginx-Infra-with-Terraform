@@ -4,12 +4,6 @@ provider "google" {
   region  = "us-central1"
   zone    = "us-central1-a"
 }
-# Create a Service Account
-resource "google_service_account" "ubuntu-sa" {
-  account_id   = "ubuntu-sa"
-  display_name = "ubuntu-sa"
-}
-
 # Compute Engine Instance Resource
 resource "google_compute_instance" "ci_cd_instance" {
   name         = "ci-cd-engine"
