@@ -1,11 +1,11 @@
 steps:
-  - name: 'gcr.io/cloud-builders/terraform'
+  - name: 'gcr.io/cloud-builders/terraform:1.5.7'
     args:
       - 'init'
-  - name: 'gcr.io/cloud-builders/terraform'
+  - name: 'gcr.io/cloud-builders/terraform:1.5.7'
     args:
       - 'apply'
       - '-auto-approve'
 options:
-  logging: CLOUD_LOGGING_ONLY  # Optional, if you want logs to be stored in Cloud Logging only
+  logging: CLOUD_LOGGING_ONLY 
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
