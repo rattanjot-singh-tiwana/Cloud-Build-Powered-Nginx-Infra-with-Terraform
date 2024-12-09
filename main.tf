@@ -4,6 +4,13 @@ provider "google" {
   region  = "us-central1"
   zone    = "us-central1-a"
 }
+terraform {
+  backend "gcs" {
+    bucket = "terraform-state-r"  # Replace with your bucket name
+    prefix = "terraform/terraform.tfstate"   # Optional: folder structure inside the bucket
+  }
+}
+
 # Compute Engine Instance Resource
 resource "google_compute_instance" "ci_cd_instance" {
   name         = "ci-cd-engine"
