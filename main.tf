@@ -9,11 +9,6 @@ resource "google_service_account" "ubuntu-sa" {
   account_id   = "ubuntu-sa"
   display_name = "ubuntu-sa"
 }
-resource "google_project_iam_member" "storage_object_viewer" {
-  project = "keen-bongo-400523"
-  role    = "roles/storage.objectViewer"
-  member  = "serviceAccount:${google_service_account.ubuntu-sa.email}"
-}
 
 # Compute Engine Instance Resource
 resource "google_compute_instance" "ci_cd_instance" {
@@ -33,10 +28,6 @@ resource "google_compute_instance" "ci_cd_instance" {
 
     # Enable External Access
     access_config {}
-  }
-  service_account {
-    email  = google_service_account.ubuntu-sa.email
-    scopes = ["https://www.googleapis.com/auth/cloud-platform"]
   }
 
    metadata = {
